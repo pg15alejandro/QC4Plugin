@@ -1,0 +1,6 @@
+name: QC4Plugin
+version: '${project.version}'
+main: me.ultraqc4.qc4plugin.QC4Plugin
+api-version: 1.18
+authors: [ Alexcan99, XeduarX ]
+description: Plugin para QC4
