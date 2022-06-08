@@ -57,6 +57,46 @@ public class AsignacionRazas implements Listener {
                 }
                 break;
 
+            case GRASS_BLOCK:
+                Block plantedGB = block.getLocation().add(0,1,0).getBlock();
+                if (plantedGB.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
+                {
+                    event.setCancelled(true);
+                }
+                break;
+
+            case DIRT:
+                Block plantedDR = block.getLocation().add(0,1,0).getBlock();
+                if (plantedDR.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
+                {
+                    event.setCancelled(true);
+                }
+                break;
+
+            case COARSE_DIRT:
+                Block plantedCD = block.getLocation().add(0,1,0).getBlock();
+                if (plantedCD.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
+                {
+                    event.setCancelled(true);
+                }
+                break;
+
+            case ROOTED_DIRT:
+                Block plantedRD = block.getLocation().add(0,1,0).getBlock();
+                if (plantedRD.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
+                {
+                    event.setCancelled(true);
+                }
+                break;
+
+            case PODZOL:
+                Block plantedPD = block.getLocation().add(0,1,0).getBlock();
+                if (plantedPD.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
+                {
+                    event.setCancelled(true);
+                }
+                break;
+
             case JUNGLE_LOG:
                 Block plantedR = block.getLocation().add(1,0,0).getBlock();
                 Block plantedL = block.getLocation().add(0,0,1).getBlock();
@@ -70,7 +110,6 @@ public class AsignacionRazas implements Listener {
                         event.setCancelled(true);
                     }
                 }
-
                 break;
 
             case STRIPPED_JUNGLE_LOG:
@@ -121,14 +160,5 @@ public class AsignacionRazas implements Listener {
                 }
                 break;
         }
-
-//        if (block.getType() == Material.STONE) {
-//            Player player = event.getPlayer();
-//
-//            System.out.println(player.getScoreboard().getEntryTeam(player.getName()));
-//            if (player.getScoreboard().getEntryTeam(player.getName()) == null) {
-//                event.setCancelled(true);
-//            }
-//        }
     }
 }
