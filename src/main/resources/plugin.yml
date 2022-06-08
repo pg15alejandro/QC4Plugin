@@ -4,3 +4,7 @@ main: me.ultraqc4.qc4plugin.QC4Plugin
 api-version: 1.18
 authors: [ Alexcan99, XeduarX ]
 description: Plugin para QC4
+commands:
+  adminrod:
+    description: Spawns an AdminRod for villager modification
+    usage: /<command>

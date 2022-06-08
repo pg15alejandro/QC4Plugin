@@ -21,6 +21,29 @@ public class AsignacionRazas implements Listener {
 //GOBLINS CAN USE LIGHT BERRIES, CANT USE BERRIES, COCOA, REMOLACHA
 //ELFOS CAN USE COCOA, CANT USE BERRIES, LIGHT BERRIES, REMOLACHA
 //ORCOS CAN USE REMOLACHA, CANT USE BERRIES, LIGHT BERRIES, COCOA
+
+public void JungleLogs(Block block, String team, BlockBreakEvent event) {
+    Block plantedR = block.getLocation().add(1, 0, 0).getBlock();
+    Block plantedL = block.getLocation().add(0, 0, 1).getBlock();
+    Block plantedF = block.getLocation().subtract(1, 0, 0).getBlock();
+    Block plantedB = block.getLocation().subtract(0, 0, 1).getBlock();
+
+    if (plantedR.getType() == Material.COCOA || plantedL.getType() == Material.COCOA
+            || plantedF.getType() == Material.COCOA || plantedB.getType() == Material.COCOA
+    ) {
+        if (!team.equals(Races.ELFOS.toString())) {
+            event.setCancelled(true);
+        }
+    }
+}
+    public void BerriesBlocks(Block block, String team, BlockBreakEvent event){
+    Block plantedGB = block.getLocation().add(0,1,0).getBlock();
+    if (plantedGB.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
+    {
+        event.setCancelled(true);
+    }
+    }
+
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Block block = event.getBlock();
@@ -58,74 +81,31 @@ public class AsignacionRazas implements Listener {
                 break;
 
             case GRASS_BLOCK:
-                Block plantedGB = block.getLocation().add(0,1,0).getBlock();
-                if (plantedGB.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
-                {
-                    event.setCancelled(true);
-                }
+                BerriesBlocks(block, team, event);
                 break;
 
             case DIRT:
-                Block plantedDR = block.getLocation().add(0,1,0).getBlock();
-                if (plantedDR.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
-                {
-                    event.setCancelled(true);
-                }
+                BerriesBlocks(block, team, event);
                 break;
 
             case COARSE_DIRT:
-                Block plantedCD = block.getLocation().add(0,1,0).getBlock();
-                if (plantedCD.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
-                {
-                    event.setCancelled(true);
-                }
+                BerriesBlocks(block, team, event);
                 break;
 
             case ROOTED_DIRT:
-                Block plantedRD = block.getLocation().add(0,1,0).getBlock();
-                if (plantedRD.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
-                {
-                    event.setCancelled(true);
-                }
+                BerriesBlocks(block, team, event);
                 break;
 
             case PODZOL:
-                Block plantedPD = block.getLocation().add(0,1,0).getBlock();
-                if (plantedPD.getType() == Material.SWEET_BERRY_BUSH && !team.equals(Races.HUMANOS.toString()))
-                {
-                    event.setCancelled(true);
-                }
+                BerriesBlocks(block, team, event);
                 break;
 
             case JUNGLE_LOG:
-                Block plantedR = block.getLocation().add(1,0,0).getBlock();
-                Block plantedL = block.getLocation().add(0,0,1).getBlock();
-                Block plantedF = block.getLocation().subtract(1,0,0).getBlock();
-                Block plantedB = block.getLocation().subtract(0,0,1).getBlock();
-
-                if (plantedR.getType() == Material.COCOA || plantedL.getType() == Material.COCOA
-                    || plantedF.getType() == Material.COCOA || plantedB.getType() == Material.COCOA
-                ) {
-                    if (!team.equals(Races.ELFOS.toString())) {
-                        event.setCancelled(true);
-                    }
-                }
+                JungleLogs(block, team, event);
                 break;
 
             case STRIPPED_JUNGLE_LOG:
-                Block plantedRS = block.getLocation().add(1,0,0).getBlock();
-                Block plantedLS = block.getLocation().add(0,0,1).getBlock();
-                Block plantedFS = block.getLocation().subtract(1,0,0).getBlock();
-                Block plantedBS = block.getLocation().subtract(0,0,1).getBlock();
-
-                if (plantedRS.getType() == Material.COCOA || plantedLS.getType() == Material.COCOA
-                        || plantedFS.getType() == Material.COCOA || plantedBS.getType() == Material.COCOA)
-            {
-                if (!team.equals(Races.ELFOS.toString())) {
-                    event.setCancelled(true);
-                }
-            }
-
+                JungleLogs(block, team, event);
                 break;
 
             case SWEET_BERRY_BUSH:

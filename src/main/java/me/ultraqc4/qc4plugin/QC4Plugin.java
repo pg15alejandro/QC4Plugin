@@ -8,6 +8,9 @@ public final class QC4Plugin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new AsignacionRazas(), this);
+        getServer().getPluginManager().registerEvents(new LifesPlayers(), this);
+        getServer().getPluginManager().registerEvents(new VillagerInteraction(), this);
+        getCommand("adminrod").setExecutor(new AdminRod());
         System.out.println("START");
     }
 
