@@ -7,6 +7,7 @@ public final class QC4Plugin extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        getServer().getPluginManager().registerEvents(new AsignacionRazas(), this);
         System.out.println("START");
     }
 
