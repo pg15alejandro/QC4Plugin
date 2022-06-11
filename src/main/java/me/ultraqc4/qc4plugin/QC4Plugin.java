@@ -11,6 +11,7 @@ public final class QC4Plugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new LifesPlayers(), this);
         getServer().getPluginManager().registerEvents(new VillagerInteraction(), this);
         getCommand("adminrod").setExecutor(new AdminRod());
+        getCommand("addlife").setExecutor(new AddLife());
         System.out.println("START");
     }
 

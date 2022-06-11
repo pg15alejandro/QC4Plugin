@@ -8,3 +8,7 @@ commands:
   adminrod:
     description: Spawns an AdminRod for villager modification
     usage: /<command>
+
+  addlife:
+    description: Add 1 life to specified player
+    usage: /<command>
